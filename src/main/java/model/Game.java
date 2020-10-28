@@ -4,15 +4,19 @@ import Interface.ITikTacToeGUI;
 import Interface.ITicTacToe;
 
 public class Game implements ITicTacToe {
-    Player playerOne = new Player(Symbol.CROSS);
-    Player playerTwo = new Player(Symbol.CIRCLE);
-    Player currentPlayer = null;
+    Player[] players = {new Player(Symbol.CROSS), new Player(Symbol.CIRCLE)};
+
+    Player currentPlayer;
 
     GameField gameField = new GameField();
 
     public void resetGame(ITikTacToeGUI gui) {
         gameField.clearGameField();
         gui.resetField();
+    }
+
+    public void resetGame() {
+
     }
 
     public void startGame() {
@@ -23,22 +27,23 @@ public class Game implements ITicTacToe {
 
     }
 
-    public void switchPlayer() {
-        if(currentPlayer==playerTwo){
-            currentPlayer=playerOne;
+    private void switchPlayer() {
+        if(currentPlayer == null){
+            currentPlayer = players[0];
+            return;
+        }
+        if(currentPlayer.equals(players[0])) {
+            currentPlayer = players[1];
         } else {
-            currentPlayer = playerTwo;
+            currentPlayer = players[0];
         }
     }
 
     public boolean setPlayerName(int index, String username) {
-        if(index == 1){
-            playerOne.setUsername(username);
-            return true;
-        } else if(index == 2){
-            playerTwo.setUsername(username);
-            return true;
+        if(index >= players.length || index < 0){
+            return false;
         }
-        return false;
+        players[index].setUsername(username);
+        return true;
     }
 }

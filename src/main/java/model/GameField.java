@@ -65,9 +65,9 @@ public class GameField {
             yCoordinate = GAME_FIELD_HEIGHT_LENGTH;
         }
         for (int xCoordinate = 0; xCoordinate < gameField.length ; xCoordinate++){
-            if(gameField[xCoordinate][yCoordinate+xCoordinate] == null) continue;
-            if(yDecrease) sum += gameField[xCoordinate][yCoordinate-xCoordinate].getValue();
-            if(!yDecrease) sum += gameField[xCoordinate][yCoordinate+xCoordinate].getValue();
+            if(gameField[xCoordinate][yCoordinate + xCoordinate] == null) continue;
+            if(yDecrease) sum += gameField[xCoordinate][yCoordinate - xCoordinate].getValue();
+            if(!yDecrease) sum += gameField[xCoordinate][yCoordinate + xCoordinate].getValue();
         }
         return sum;
     }

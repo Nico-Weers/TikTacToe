@@ -13,6 +13,9 @@ public class Player {
     }
 
     public String getUsername() {
+        if(username == null){
+            username = "";
+        }
         return username;
     }
 
