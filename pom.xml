@@ -3,6 +3,18 @@
   <groupId>com.weers.nico</groupId>
   <artifactId>tikTacToe</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <name>TikTakToe</name>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>7</source>
+                    <target>7</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    <name>TikTakToe</name>
   <description>Game by Lennart Kleymann and Nico Weers</description>
 </project>

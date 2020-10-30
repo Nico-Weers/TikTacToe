@@ -1,4 +1,4 @@
-package Interface;
+package interfaces;
 
 public interface ITicTacToe {
     public void resetGame();

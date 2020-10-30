@@ -1,12 +1,14 @@
 package model;
 
 public enum Symbol {
-    CROSS(1), CIRCLE(4);
+    CROSS(1, 'X'), CIRCLE(4, 'O');
 
     private final int value;
+    private final char character;
 
-    Symbol(int value){
+    Symbol(int value, char character){
         this.value = value;
+        this.character = character;
     }
 
     public int getValue() {

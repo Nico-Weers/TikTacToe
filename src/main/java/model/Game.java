@@ -1,7 +1,7 @@
 package model;
 
-import Interface.ITikTacToeGUI;
-import Interface.ITicTacToe;
+import interfaces.ITikTacToeGUI;
+import interfaces.ITicTacToe;
 
 public class Game implements ITicTacToe {
     Player[] players = {new Player(Symbol.CROSS), new Player(Symbol.CIRCLE)};
