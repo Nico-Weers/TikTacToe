@@ -64,6 +64,7 @@ public class Game implements ITikTacToe {
         return gameField;
     }
 
+    @Override
     public Player getCurrentPlayer() {
         return currentPlayer;
     }
