@@ -22,6 +22,7 @@ public class MainApp {
         registerGUI.initialize();
         List<String> usernames = registerGUI.showAndWait();
         ITikTacToe backend = new Game();
+        backend.startGame();
         ITikTacToeGUI gui = new GameGUI(backend);
         gui.initialize();
         configFrame();

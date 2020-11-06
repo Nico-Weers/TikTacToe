@@ -136,6 +136,13 @@ public class GameGUI implements ITikTacToeGUI {
 		backend.setSymbolOnGameField(x, y);
 		buttonTable[x][y].setEnabled(false);
 		rerender();
+		if(backend.playerWon()){
+			openWinDialog();
+		}
+	}
+
+	private void openWinDialog() {
+
 	}
 
 

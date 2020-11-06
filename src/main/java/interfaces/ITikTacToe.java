@@ -10,4 +10,5 @@ public interface ITikTacToe {
     public boolean setPlayerName(int index, String username);
     public void setSymbolOnGameField(int x, int y);
 
+    boolean playerWon();
 }
