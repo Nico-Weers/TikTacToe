@@ -42,7 +42,8 @@ public class GameGUI implements ITikTacToeGUI {
 		for (int row = 0; row < symbols.length; row++) {
 			for (int column = 0; column < symbols[row].length; column++) {
 				Symbol currentSymbol = symbols[row][column];
-				buttonTable[row][column].setText(Character.toString(currentSymbol.getCharacter()));
+				if(currentSymbol != null)
+					buttonTable[row][column].setText(Character.toString(currentSymbol.getCharacter()));
 			}
 		}
 	}
