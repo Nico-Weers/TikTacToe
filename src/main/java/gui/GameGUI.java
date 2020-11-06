@@ -2,6 +2,8 @@ package gui;
 
 import interfaces.ITikTacToe;
 import interfaces.ITikTacToeGUI;
+import model.GameField;
+import model.Symbol;
 import utils.LanguageDictionary;
 
 import javax.swing.JButton;
@@ -30,6 +32,19 @@ public class GameGUI implements ITikTacToeGUI {
 
 	public GameGUI(ITikTacToe backend) {
 		this.backend = backend;
+		rerender();
+	}
+
+	public void rerender(){
+		GameField curGameField = backend.getGameField();
+		Symbol[][] symbols = curGameField.getGameField();
+
+		for (int row = 0; row < symbols.length; row++) {
+			for (int column = 0; column < symbols[row].length; column++) {
+				Symbol currentSymbol = symbols[row][column];
+				buttonTable[row][column].setText(Character.toString(currentSymbol.getCharacter()));
+			}
+		}
 	}
 
 	@Override public void initialize() {

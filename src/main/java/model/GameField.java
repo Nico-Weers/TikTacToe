@@ -11,6 +11,10 @@ public class GameField {
         gameField[xCoordinate][yCoordinate] = symbol;
     }
 
+    public Symbol[][] getGameField(){
+        return gameField;
+    }
+
     public void clearGameField(){
         for (Symbol[] column : gameField){
             for (Symbol cell : column){

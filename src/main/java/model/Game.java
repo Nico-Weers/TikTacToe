@@ -15,6 +15,10 @@ public class Game implements ITikTacToe {
         gui.resetField();
     }
 
+    public GameField getGameField(){
+        return gameField;
+    }
+
     public void resetGame() {
         gameField.clearGameField();
     }

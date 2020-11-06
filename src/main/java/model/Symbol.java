@@ -11,6 +11,10 @@ public enum Symbol {
         this.character = character;
     }
 
+    public char getCharacter() {
+        return character;
+    }
+
     public int getValue() {
         return value;
     }
