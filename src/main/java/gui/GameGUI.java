@@ -62,63 +62,81 @@ public class GameGUI implements ITikTacToeGUI {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
+				buttonClicked(0, 2);
+				rerender();
 			}
 		});
 		x1y2Button.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
+				buttonClicked(1, 2);
 			}
 		});
 		x2y2Button.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
+				buttonClicked(2, 2);
 			}
 		});
 		x1y1Button.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
+				buttonClicked(1, 1);
 			}
 		});
 		x0y1Button.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
+				buttonClicked(0, 1);
 			}
 		});
 		x1y1Button.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
+				buttonClicked(1, 1);
 			}
 		});
 		x2y1Button.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
+				buttonClicked(2, 1);
 			}
 		});
 		x0y0Button.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
+				buttonClicked(0, 0);
 			}
 		});
 		x1y0Button.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
+				buttonClicked(1, 0);
 			}
 		});
 		x2y0Button.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
+				buttonClicked(2, 0);
 			}
 		});
 	}
+
+	private void buttonClicked(int x, int y){
+
+		buttonTable[x][y].setEnabled(false);
+		rerender();
+	}
+
 
 	@Override public JButton getButton(int x, int y) {
 		return buttonTable[x][y];

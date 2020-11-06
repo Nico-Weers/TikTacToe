@@ -15,10 +15,6 @@ public class Game implements ITikTacToe {
         gui.resetField();
     }
 
-    public GameField getGameField(){
-        return gameField;
-    }
-
     public void resetGame() {
         gameField.clearGameField();
     }
@@ -49,5 +45,13 @@ public class Game implements ITikTacToe {
         }
         players[index].setUsername(username);
         return true;
+    }
+
+    public GameField getGameField(){
+        return gameField;
+    }
+
+    public Player getCurrentPlayer() {
+        return currentPlayer;
     }
 }
