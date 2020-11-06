@@ -63,6 +63,7 @@ public class UsernameGUI extends JDialog implements IRegisterGUI {
 	}
 
 	private void start() {
+		if()
 		this.dispose();
 	}
 

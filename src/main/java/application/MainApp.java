@@ -14,7 +14,7 @@ public class MainApp {
     private static final int FRAME_HEIGHT = 200;
     private static final int FRAME_WIDTH = 400;
 
-    JFrame frame = new JFrame("");
+    private JFrame frame = new JFrame("");
 
     public void start(){
         IRegisterGUI registerGUI = new UsernameGUI(frame);
@@ -23,6 +23,7 @@ public class MainApp {
         configFrame();
         ITikTacToe backend = new Game();
         ITikTacToeGUI gameGui = new GameGUI(backend);
+        gameGui.initialize();
         frame.setContentPane(gameGui.getRootPanel());
     }
 
