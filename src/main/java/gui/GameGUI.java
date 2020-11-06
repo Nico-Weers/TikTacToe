@@ -132,7 +132,7 @@ public class GameGUI implements ITikTacToeGUI {
 	}
 
 	private void buttonClicked(int x, int y){
-
+		backend.setSymbolOnGameField(x, y);
 		buttonTable[x][y].setEnabled(false);
 		rerender();
 	}

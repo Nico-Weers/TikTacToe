@@ -8,5 +8,6 @@ public interface ITikTacToe {
     public void setUpPlayer();
     public GameField getGameField();
     public boolean setPlayerName(int index, String username);
+    public void setSymbolOnGameField(int x, int y);
 
 }
