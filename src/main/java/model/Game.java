@@ -16,15 +16,15 @@ public class Game implements ITicTacToe {
     }
 
     public void resetGame() {
-
+        gameField.clearGameField();
     }
 
     public void startGame() {
-
+        setUpPlayer();
     }
 
     public void setUpPlayer() {
-
+        switchPlayer();
     }
 
     private void switchPlayer() {
