@@ -16,7 +16,9 @@ public class Game implements ITikTacToe {
     }
 
     public void resetGame() {
+        currentPlayer = null;
         gameField.clearGameField();
+        startGame();
     }
 
     public void startGame() {
