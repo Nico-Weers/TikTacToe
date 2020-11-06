@@ -44,6 +44,10 @@ public class GameGUI implements ITikTacToeGUI {
 				Symbol currentSymbol = symbols[row][column];
 				if(currentSymbol != null)
 					buttonTable[row][column].setText(Character.toString(currentSymbol.getCharacter()));
+				else{
+					buttonTable[row][column].setText("");
+					buttonTable[row][column].setEnabled(true);
+				}
 			}
 		}
 	}
@@ -59,6 +63,13 @@ public class GameGUI implements ITikTacToeGUI {
 		x1y0Button.setText("");
 		x0y0Button.setText("");
 		resetButton.setText(LanguageDictionary.getEntry("gameGui.content.resetButton"));
+		resetButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				backend.resetGame();
+				rerender();
+			}
+		});
 		x0y2Button.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {

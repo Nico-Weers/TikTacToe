@@ -2,7 +2,7 @@ package model;
 
 public class GameField {
     private static final int GAME_FIELD_HEIGHT_LENGTH = 3;
-    private final Symbol[][] gameField = new Symbol[GAME_FIELD_HEIGHT_LENGTH][GAME_FIELD_HEIGHT_LENGTH];
+    private Symbol[][] gameField = new Symbol[GAME_FIELD_HEIGHT_LENGTH][GAME_FIELD_HEIGHT_LENGTH];
 
     public void setSymbol(int xCoordinate, int yCoordinate, Symbol symbol){
         if(gameField[xCoordinate][yCoordinate] != null){
@@ -16,11 +16,7 @@ public class GameField {
     }
 
     public void clearGameField(){
-        for (Symbol[] column : gameField){
-            for (Symbol cell : column){
-                cell = null;
-            }
-        }
+        gameField = new Symbol[GAME_FIELD_HEIGHT_LENGTH][GAME_FIELD_HEIGHT_LENGTH];
     }
 
     public boolean checkWon(Player player) {
