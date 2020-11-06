@@ -8,10 +8,11 @@ import interfaces.ITikTacToe;
 import model.Game;
 
 import javax.swing.*;
+import java.util.List;
 
 public class MainApp {
 
-    private static final int FRAME_HEIGHT = 200;
+    private static final int FRAME_HEIGHT = 500;
     private static final int FRAME_WIDTH = 400;
 
     private JFrame frame = new JFrame("");
@@ -19,12 +20,12 @@ public class MainApp {
     public void start(){
         IRegisterGUI registerGUI = new UsernameGUI(frame);
         registerGUI.initialize();
-        registerGUI.showAndWait();
-        configFrame();
+        List<String> usernames = registerGUI.showAndWait();
         ITikTacToe backend = new Game();
-        ITikTacToeGUI gameGui = new GameGUI(backend);
-        gameGui.initialize();
-        frame.setContentPane(gameGui.getRootPanel());
+        ITikTacToeGUI gui = new GameGUI(backend);
+        gui.initialize();
+        configFrame();
+        frame.setContentPane(gui.getRootPanel());
     }
 
     private void configFrame() {

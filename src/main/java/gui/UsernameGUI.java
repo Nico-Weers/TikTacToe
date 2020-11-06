@@ -1,6 +1,5 @@
 package gui;
 
-import application.MainApp;
 import interfaces.IRegisterGUI;
 
 import utils.LanguageDictionary;
@@ -25,6 +24,8 @@ public class UsernameGUI extends JDialog implements IRegisterGUI {
 	private JTextField usernameOneTextField;
 	private JTextField usernameTwoTextField;
 	private JButton startButton;
+
+	private boolean canStart = false;
 
 	public UsernameGUI(Frame frame){
 		super(frame);
@@ -63,8 +64,10 @@ public class UsernameGUI extends JDialog implements IRegisterGUI {
 	}
 
 	private void start() {
-		if()
-		this.dispose();
+		if(!this.usernameOneTextField.getText().equals("") && !this.usernameTwoTextField.getText().equals("")){
+			canStart = true;
+			this.dispose();
+		}
 	}
 
 	@Override public List<String> getUsernames() {
@@ -75,9 +78,12 @@ public class UsernameGUI extends JDialog implements IRegisterGUI {
 	}
 
 	@Override
-	public void showAndWait() {
+	public List<String> showAndWait() {
 		this.setSize(DIALOG_WIDTH, DIALOG_HEIGTH);
 		this.setVisible(true);
+		while(!canStart){
+		}
+		return getUsernames();
 	}
 
 	@Override public JPanel getRootPanel() {
