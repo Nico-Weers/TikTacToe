@@ -29,15 +29,19 @@ public class Game implements ITikTacToe {
 
     @Override
     public void setSymbolOnGameField(int x, int y){
-        if(gameField.getGameField()[x][y] == null){
-            gameField.setSymbol(x, y, currentPlayer.getSymbol());
-            switchPlayer();
+        if(gameField.getGameField()[x][y] != null){
+            return;
         }
+        gameField.setSymbol(x, y, currentPlayer.getSymbol());
+        if(playerWon()){
+            return;
+        }
+        switchPlayer();
     }
 
     @Override
     public boolean playerWon() {
-        return false;
+        return gameField.checkWon(currentPlayer);
     }
 
     private void switchPlayer() {

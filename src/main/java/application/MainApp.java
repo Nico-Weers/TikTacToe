@@ -22,17 +22,23 @@ public class MainApp {
         registerGUI.initialize();
         List<String> usernames = registerGUI.showAndWait();
         ITikTacToe backend = new Game();
-        backend.startGame();
+        configBackend(backend, usernames);
         ITikTacToeGUI gui = new GameGUI(backend);
         gui.initialize();
-        configFrame();
-        frame.setContentPane(gui.getRootPanel());
+        configFrame(gui.getRootPanel());
     }
 
-    private void configFrame() {
+    private void configBackend(ITikTacToe backend, List<String> usernames){
+        backend.setPlayerName(0, usernames.get(0));
+        backend.setPlayerName(1, usernames.get(1));
+        backend.startGame();
+    }
+
+    private void configFrame(JPanel rootPanel) {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
         frame.setSize(FRAME_WIDTH, FRAME_HEIGHT);
+        frame.setContentPane(rootPanel);
     }
 
     public static void main(String[] ignore){

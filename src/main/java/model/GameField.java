@@ -30,10 +30,10 @@ public class GameField {
                 return true;
             }
         }
-        if(checkDiagonal(true) == sumToWin){
+        if(checkDiagonalyDecrease() == sumToWin){
             return true;
         }
-        if(checkDiagonal(false) == sumToWin){
+        if(checkDiagonalyIncrease() == sumToWin){
             return true;
         }
         return false;
@@ -63,15 +63,20 @@ public class GameField {
 
     //wenn yDecrease == true, summiert die Funktion die Werte der Symbole con links-oben nach rechts unten
     //ansonsten werden die Werte der Symbole von links-unten nach rechts-oben summiert
-    private int checkDiagonal(boolean yDecrease){
+    private int checkDiagonalyDecrease(){
         int yCoordinate = 0, sum = 0;
-        if(yDecrease){
-            yCoordinate = GAME_FIELD_HEIGHT_LENGTH;
-        }
         for (int xCoordinate = 0; xCoordinate < gameField.length ; xCoordinate++){
             if(gameField[xCoordinate][yCoordinate + xCoordinate] == null) continue;
-            if(yDecrease) sum += gameField[xCoordinate][yCoordinate - xCoordinate].getValue();
-            if(!yDecrease) sum += gameField[xCoordinate][yCoordinate + xCoordinate].getValue();
+            sum += gameField[xCoordinate][yCoordinate + xCoordinate].getValue();
+        }
+        return sum;
+    }
+
+    private int checkDiagonalyIncrease(){
+        int yCoordinate = 2, sum = 0;
+        for (int xCoordinate = 0; xCoordinate < gameField.length ; xCoordinate++){
+            if(gameField[xCoordinate][yCoordinate - xCoordinate] == null) continue;
+            sum += gameField[xCoordinate][yCoordinate - xCoordinate].getValue();
         }
         return sum;
     }

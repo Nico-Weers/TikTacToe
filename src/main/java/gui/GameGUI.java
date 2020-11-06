@@ -145,6 +145,9 @@ public class GameGUI implements ITikTacToeGUI {
 		Dialog winDialog = new JDialog();
 		winDialog.setTitle("Gewonnen!");
 		winDialog.add(new Label("Spieler " + backend.getCurrentPlayer().getUsername() + " hat gewonnen!"));
+		winDialog.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
+		winDialog.pack();
+		winDialog.setVisible(true);
 	}
 
 
