@@ -1,9 +1,13 @@
 package application;
 
+import gui.GameGUI;
 import gui.UsernameGUI;
 import interfaces.IRegisterGUI;
+import interfaces.ITikTacToeGUI;
+import interfaces.ITikTacToe;
+import model.Game;
 
-import javax.swing.JFrame;
+import javax.swing.*;
 
 public class MainApp {
 
@@ -13,16 +17,17 @@ public class MainApp {
     JFrame frame = new JFrame("");
 
     public void start(){
-        IRegisterGUI registerGUI = new UsernameGUI();
+        IRegisterGUI registerGUI = new UsernameGUI(frame);
         registerGUI.initialize();
+        registerGUI.showAndWait();
         configFrame();
-        frame.setContentPane(registerGUI.getRootPanel());
+        ITikTacToeGUI gameGui = new GameGUI();
+        ITikTacToe backend = new Game();
     }
 
     private void configFrame() {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.pack();
-        frame.setVisible(true);
+        //frame.setVisible(true);
         frame.setSize(FRAME_WIDTH, FRAME_HEIGHT);
     }
 
