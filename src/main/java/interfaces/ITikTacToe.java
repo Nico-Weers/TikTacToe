@@ -1,6 +1,6 @@
 package interfaces;
 
-public interface ITicTacToe {
+public interface ITikTacToe {
     public void resetGame();
     public void startGame();
     public void setUpPlayer();
