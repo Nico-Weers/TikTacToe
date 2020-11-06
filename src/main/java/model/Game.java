@@ -4,11 +4,11 @@ import interfaces.ITikTacToeGUI;
 import interfaces.ITikTacToe;
 
 public class Game implements ITikTacToe {
-    Player[] players = {new Player(Symbol.CROSS), new Player(Symbol.CIRCLE)};
+    private Player[] players = {new Player(Symbol.CROSS), new Player(Symbol.CIRCLE)};
 
-    Player currentPlayer;
+    private Player currentPlayer;
 
-    GameField gameField = new GameField();
+    private GameField gameField = new GameField();
 
     public void resetGame(ITikTacToeGUI gui) {
         gameField.clearGameField();

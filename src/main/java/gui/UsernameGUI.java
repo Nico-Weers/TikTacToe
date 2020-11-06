@@ -1,5 +1,6 @@
 package gui;
 
+import application.MainApp;
 import interfaces.IRegisterGUI;
 
 import utils.LanguageDictionary;
@@ -33,6 +34,7 @@ public class UsernameGUI extends JDialog implements IRegisterGUI {
 		usernameOneLabel.setText(LanguageDictionary.getEntry("usernameGui.content.usernameOneLabel"));
 		usernameTwoLabel.setText(LanguageDictionary.getEntry("usernameGui.content.usernameTwoLabel"));
 		startButton.setText(LanguageDictionary.getEntry("usernameGui.content.startButton"));
+		this.setModalityType(ModalityType.APPLICATION_MODAL);
 		startButton.addActionListener(new ActionListener() {
 			@Override public void actionPerformed(ActionEvent e) {
 				start();

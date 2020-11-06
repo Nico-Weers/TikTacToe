@@ -1,12 +1,16 @@
 package gui;
 
+import interfaces.ITikTacToe;
 import interfaces.ITikTacToeGUI;
 import utils.LanguageDictionary;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class GameGUI implements ITikTacToeGUI {
+	private ITikTacToe backend;
 	private JPanel rootPanel;
 	private JButton x0y2Button;
 	private JButton x1y2Button;
@@ -24,6 +28,10 @@ public class GameGUI implements ITikTacToeGUI {
 			{ x2y0Button, x2y1Button, x2y2Button }
 	};
 
+	public GameGUI(ITikTacToe backend) {
+		this.backend = backend;
+	}
+
 	@Override public void initialize() {
 		x0y2Button.setText("");
 		x1y2Button.setText("");
@@ -35,6 +43,66 @@ public class GameGUI implements ITikTacToeGUI {
 		x1y0Button.setText("");
 		x0y0Button.setText("");
 		resetButton.setText(LanguageDictionary.getEntry("gameGui.content.resetButton"));
+		x0y2Button.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+			}
+		});
+		x1y2Button.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+			}
+		});
+		x2y2Button.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+			}
+		});
+		x1y1Button.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+			}
+		});
+		x0y1Button.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+			}
+		});
+		x1y1Button.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+			}
+		});
+		x2y1Button.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+			}
+		});
+		x0y0Button.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+			}
+		});
+		x1y0Button.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+			}
+		});
+		x2y0Button.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+			}
+		});
 	}
 
 	@Override public JButton getButton(int x, int y) {

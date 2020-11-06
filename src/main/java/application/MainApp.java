@@ -21,13 +21,14 @@ public class MainApp {
         registerGUI.initialize();
         registerGUI.showAndWait();
         configFrame();
-        ITikTacToeGUI gameGui = new GameGUI();
         ITikTacToe backend = new Game();
+        ITikTacToeGUI gameGui = new GameGUI(backend);
+        frame.setContentPane(gameGui.getRootPanel());
     }
 
     private void configFrame() {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        //frame.setVisible(true);
+        frame.setVisible(true);
         frame.setSize(FRAME_WIDTH, FRAME_HEIGHT);
     }
 

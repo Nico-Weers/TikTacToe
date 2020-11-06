@@ -1,5 +1,7 @@
 package interfaces;
 
+import application.MainApp;
+
 import java.util.List;
 
 public interface IRegisterGUI extends ISwingGUI {
