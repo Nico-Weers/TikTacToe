@@ -6,8 +6,8 @@ import model.GameField;
 import model.Symbol;
 import utils.LanguageDictionary;
 
-import javax.swing.JButton;
-import javax.swing.JPanel;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -151,9 +151,11 @@ public class GameGUI implements ITikTacToeGUI {
 			openWinDialog();
 		}
 	}
-
-	private void openWinDialog() {
-
+	@Override
+	public void openWinDialog() {
+		Dialog winDialog = new JDialog();
+		winDialog.setTitle("Gewonnen!");
+		winDialog.add(new Label("Spieler " + backend.getCurrentPlayer().getUsername() + " hat gewonnen!"));
 	}
 
 

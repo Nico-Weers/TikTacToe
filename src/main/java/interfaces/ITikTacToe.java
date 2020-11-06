@@ -1,6 +1,7 @@
 package interfaces;
 
 import model.GameField;
+import model.Player;
 
 public interface ITikTacToe {
     public void resetGame();
@@ -11,4 +12,6 @@ public interface ITikTacToe {
     public void setSymbolOnGameField(int x, int y);
 
     boolean playerWon();
+
+    public Player getCurrentPlayer();
 }
