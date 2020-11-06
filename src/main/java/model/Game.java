@@ -31,6 +31,13 @@ public class Game implements ITikTacToe {
         switchPlayer();
     }
 
+    public void setSymbolOnGameField(int x, int y){
+        if(gameField.getGameField()[x][y] == null){
+            gameField.setSymbol(x, y, currentPlayer.getSymbol());
+            switchPlayer();
+        }
+    }
+
     private void switchPlayer() {
         if(currentPlayer == null){
             currentPlayer = players[0];
