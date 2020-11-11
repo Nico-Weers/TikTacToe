@@ -11,7 +11,7 @@ public class GameField {
         gameField[xCoordinate][yCoordinate] = symbol;
     }
 
-    public Symbol[][] getGameField(){
+    public Symbol[][] getGameFieldAsSymbols(){
         return gameField;
     }
 

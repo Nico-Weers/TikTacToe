@@ -4,18 +4,14 @@ import interfaces.ITikTacToeGUI;
 import interfaces.ITikTacToe;
 
 public class Game implements ITikTacToe {
-    private Player[] players = {new Player(Symbol.CROSS), new Player(Symbol.CIRCLE)};
+    private final Player[] players = {new Player(Symbol.CROSS), new Player(Symbol.CIRCLE)};
 
     private Player currentPlayer;
 
-    private GameField gameField = new GameField();
+    private final GameField gameField = new GameField();
 
+    @Override
     public void resetGame(ITikTacToeGUI gui) {
-        gameField.clearGameField();
-        gui.resetField();
-    }
-
-    public void resetGame() {
         currentPlayer = null;
         gameField.clearGameField();
         startGame();
@@ -30,19 +26,38 @@ public class Game implements ITikTacToe {
     }
 
     @Override
-    public void setSymbolOnGameField(int x, int y){
-        if(gameField.getGameField()[x][y] != null){
+    public void setSymbolOnGameField(ITikTacToeGUI gui, int x, int y){
+        if(gameField.getGameFieldAsSymbols()[x][y] != null){
             return;
         }
         gameField.setSymbol(x, y, currentPlayer.getSymbol());
+        rerenderGUI(gui);
         if(playerWon()){
+            gui.openWinDialog(getCurrentPlayer().getUsername());
             return;
         }
         switchPlayer();
     }
 
-    @Override
-    public boolean playerWon() {
+
+    private void rerenderGUI(ITikTacToeGUI gui) {
+        Symbol[][] symbols = gameField.getGameFieldAsSymbols();
+        for (int row = 0; row < symbols.length; row++) {
+            for (int column = 0; column < symbols[row].length; column++) {
+                Symbol currentSymbol = symbols[row][column];
+                if(currentSymbol != null) {
+                    gui.getButton(row, column).setText(Character.toString(currentSymbol.getCharacter()));
+                    gui.getButton(row, column).setEnabled(false);
+                }
+                else{
+                    gui.getButton(row, column).setText("");
+                    gui.getButton(row, column).setEnabled(true);
+                }
+            }
+        }
+    }
+
+    private boolean playerWon() {
         return gameField.checkWon(currentPlayer);
     }
 
@@ -58,16 +73,13 @@ public class Game implements ITikTacToe {
         }
     }
 
+    @Override
     public boolean setPlayerName(int index, String username) {
         if(index >= players.length || index < 0){
             return false;
         }
         players[index].setUsername(username);
         return true;
-    }
-
-    public GameField getGameField(){
-        return gameField;
     }
 
     @Override
