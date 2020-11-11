@@ -15,7 +15,7 @@ public class MainApp {
     private static final int FRAME_HEIGHT = 500;
     private static final int FRAME_WIDTH = 400;
 
-    private JFrame frame = new JFrame("");
+    private final JFrame frame = new JFrame("");
 
     public void start(){
         IRegisterGUI registerGUI = new UsernameGUI(frame);

@@ -17,11 +17,8 @@ public class Game implements ITikTacToe {
         startGame();
     }
 
+    @Override
     public void startGame() {
-        setUpPlayer();
-    }
-
-    public void setUpPlayer() {
         switchPlayer();
     }
 
@@ -31,16 +28,15 @@ public class Game implements ITikTacToe {
             return;
         }
         gameField.setSymbol(x, y, currentPlayer.getSymbol());
-        rerenderGUI(gui);
+        rerender(gui);
         if(playerWon()){
-            gui.openWinDialog(getCurrentPlayer().getUsername());
+            gui.openWinDialog(currentPlayer.getUsername());
             return;
         }
         switchPlayer();
     }
 
-
-    private void rerenderGUI(ITikTacToeGUI gui) {
+    private void rerender(ITikTacToeGUI gui) {
         Symbol[][] symbols = gameField.getGameFieldAsSymbols();
         for (int row = 0; row < symbols.length; row++) {
             for (int column = 0; column < symbols[row].length; column++) {
@@ -80,10 +76,5 @@ public class Game implements ITikTacToe {
         }
         players[index].setUsername(username);
         return true;
-    }
-
-    @Override
-    public Player getCurrentPlayer() {
-        return currentPlayer;
     }
 }
