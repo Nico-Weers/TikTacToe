@@ -27,6 +27,21 @@ public class UsernameGUI extends JDialog implements IRegisterGUI {
 
 	private boolean canStart = false;
 
+	KeyListener enterListener = new KeyListener() {
+		@Override
+		public void keyTyped(KeyEvent e) {
+		}
+		@Override
+		public void keyPressed(KeyEvent e) {
+			if(e.getKeyCode() == KeyEvent.VK_ENTER){
+				start();
+			}
+		}
+		@Override
+		public void keyReleased(KeyEvent e) {
+		}
+	};
+
 	public UsernameGUI(Frame frame){
 		super(frame);
 	}
@@ -41,25 +56,9 @@ public class UsernameGUI extends JDialog implements IRegisterGUI {
 				start();
 			}
 		});
-		rootPanel.addKeyListener(new KeyListener() {
-			 @Override
-			 public void keyTyped(KeyEvent e) {
-
-			 }
-
-			 @Override
-			 public void keyPressed(KeyEvent e) {
-				if(e.getKeyCode() == KeyEvent.VK_ENTER){
-					start();
-				}
-			 }
-
-			 @Override
-			 public void keyReleased(KeyEvent e) {
-
-			 }
-		 }
-		);
+		startButton.addKeyListener(enterListener);
+		usernameOneTextField.addKeyListener(enterListener);
+		usernameTwoTextField.addKeyListener(enterListener);
 		this.add(rootPanel);
 	}
 
